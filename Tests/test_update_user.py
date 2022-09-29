@@ -43,13 +43,8 @@ class validation():
         assert response['type'] == "unknown"
         assert response['message']==expected_data[0]
 
-    def validate_error_response(self,response):
-        response = response.json()
-        assert response['message'] == error_message
-        assert response['type'] == type
-
-
     def validate_get_user_response(self , response , single_user):
+        # validate get response
         response = response.json()
         for expected , actual in zip(single_user , response.values()):
             assert str(expected) == str(actual)

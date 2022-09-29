@@ -32,8 +32,15 @@ class request_user(request_processor):
         self.create_user_response = response # soring response in
         return response
 
+
     def get_user(self,base_url,user_id):
         uri = get_or_put_user_uri.format(user_name=user_id)
         response = self.process_reqeust(base_url=base_url,request_type='GET',uri=uri)
         self.get_user_repsonse = response # storing this response for easy accessbility
+        return response
+
+    def update_user(self,base_url,user_id):
+        uri = get_or_put_user_uri.format(user_name=user_id)
+        body = json.dumps(User(*single_user_update).__dict__)
+        response = self.process_reqeust(base_url=base_url, uri=uri,request_type='PUT',request_body=body)
         return response

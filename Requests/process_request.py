@@ -26,7 +26,7 @@ class request_processor():
                 data=request_body
             )
         elif request_type == 'PUT':
-            response = requests.post(
+            response = requests.put(
                 url=url,
                 headers=headers,
                 data=request_body

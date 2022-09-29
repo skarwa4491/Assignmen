@@ -8,7 +8,7 @@ class Test_update_user(Test_base):
         before_action_response = self.common_request_caller(self.user.create_user, self.base_url, True)
         if before_action_response.status_code == 200:
             update_user_response = self.user.update_user(self.base_url, single_user[1]) # update user
-            self.validate_update_user_response(update_user_response,single_user_update)
+            self.validate_update_user_response(update_user_response,single_user_update) #validate updated_user response
             get_user_response = self.user.get_user(self.base_url,single_user_update[1]) # get updated user
             self.validate_get_user_after_update(get_user_response, single_user_update) # validate get user after update
 
